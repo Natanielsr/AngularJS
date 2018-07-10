@@ -1,0 +1,61 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="text-align: center">
+    <h1 style="margin: 20px">Batalha das Séries</h1>
+
+    <div *ngIf="!terminou"  class="container">
+    
+      <div class="row">
+            <div class="col-md-5">
+                <h2>{{timeA.time.nome}}</h2>
+                <img style="height: 200px; width: 200px;" [src]="timeA.time.img" alt="">
+                <div style="margin: 20px;">
+                    <button class="btn btn-success" (click)="venceA()">Vence {{timeA.time.nome}}</button>
+                </div>
+            </div>
+
+            <div class="col-md-2" >
+                <h2>VS</h2>
+            </div>
+        
+            <div class="col-md-5">
+                <h2>{{timeB.time.nome}}</h2>
+                <img style="height: 200px; width: 200px;" [src]="timeB.time.img" alt="">
+                <div style="margin: 20px;">
+                    <button class="btn btn-success" (click)="venceB()">Vence {{timeB.time.nome}}</button>
+                </div>
+                
+            </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12">
+            <button style="margin: 50px" class="btn btn-primary" (click)="empate()">Empate</button>
+        </div>
+          
+      </div>
+        
+    </div>
+    <table *ngIf="terminou" border="1" width="100%">
+        <tr>
+          <th>Posição</th>
+          <th>Time</th>
+          <th>Derrotas</th>
+          <th>Empates</th>
+          <th>Vitorias</th>
+          <th>Pontos</th>
+        </tr>
+        <tr *ngFor="let placar of placares; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{placar.time.nome}}</td>
+          <td>{{placar.derrotas}}</td>
+          <td>{{placar.empates}}</td>
+          <td>{{placar.vitorias}}</td>
+          <td>{{placar.pontuacao}}</td>
+        </tr>
+    </table>
+</div>
+
+  
+
